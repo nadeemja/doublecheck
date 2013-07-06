@@ -6,3 +6,7 @@ Når du ønsker å bruke en formel, vil DoubleCheck spørre deg om de variablene som
 Du behøver derfor ikke å pugge formlene, eller gjøre utregningene selv. 
 
 DoubleCheck, slik navnet hinter til, er ypperlig til å kontrollere arbeidet du allerede har gjort.
+
+# Ressurser
+
+[TI-Basic Developer](http://tibasicdev.wikidot.com/)
