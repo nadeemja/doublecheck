@@ -1,0 +1,246 @@
+"SlrFriKjemi"
+Disp "1-Molberegninger"
+Disp "2-SyrerBaser"
+Disp "3-Titrering"
+Disp "4-ForbrnningEntlpi"
+Disp "5-Elektrokjemi"
+Input "Alternati",A
+ClrHome
+
+"Molberegninger"
+If A=1
+Then
+Disp "1-Mol"
+Disp "2-Molarmasse"
+Disp "3-Masse"
+Disp "4-Molar"
+Disp "5-Volm"
+Input "6-EndreVolm",A
+ClrHome
+
+"Mol"
+If A=1
+Then
+Input "Gram:",X
+Input "Molarmasse:",Y
+Disp "Mol:"
+Disp X/Y
+0->A
+End
+"Molarmasse"
+If A=2
+Then
+Input "Gram:",X
+Input "Mol:",Y
+Disp "Molarmasse:"
+Disp X/Y
+0->A
+End
+"Masse"
+If A=3
+Then
+Input "Molarmasse:",X
+Input "Mol:",Y
+Disp "Masse:"
+Disp X*Y
+0->A
+End
+"Molar"
+If A=4
+Then
+Input "Mol:",X
+Input "Liter:",Y
+Disp "Molar:"
+Disp X/Y
+0->A
+End
+"Volm"
+If A=5
+Then
+Input "Mol:",X
+Input "Konsentrasjon:",Y
+Disp "Volm:"
+Disp X/Y
+0->A
+End
+"EndreVolm"
+If A=6
+Then
+Input "MolarA:",X
+Input "MolarB:",Y
+Input "VolmB:",Z
+Disp "VolmbrkA:"
+Disp Y*Z/X
+0->A
+End
+0->A
+End
+"SyrerBaser"
+If A=2
+Then
+Disp "Regn:"
+Disp "1-PhSterkSyre"
+Disp "2-PhSakSyre"
+Disp "3-PhBffer"
+Disp "4-BfferKapasitet"
+Input "Alternati",A
+ClrHome
+
+"PhSterkSyre"
+If A=1
+Then
+Input "MolHIoner:",X
+Input "Volm",Y
+Disp "Ph:"
+Disp -log(X/Y)
+0->A
+End
+"PhSakSyre"
+If A=2
+Then
+Input "Konsentrasjon:",X
+Input "Syrekonstant:",Y
+(Y^2+4YX)^(1/2)->D
+(-Y+D)/2->A
+(-Y-D)/2->B
+If A>0
+Then
+Disp "pH:"
+Disp -log(A)
+0->A
+Else
+Disp "pH:"
+Disp -log(B)
+0->A
+End
+0->A
+End
+"PhBffer"
+If A=3
+Then
+Input "Syrekonstant:",X
+Input "[Base]:",Y
+Input "[Syre]:",Z
+Disp "pH:"
+Disp -log(X)+log(Y/Z)
+0->A
+End
+"BfferKapasitet"
+If A=4
+Then
+Input "VolmSakSyre:",A
+Input "[KonsSakSyre]:",B
+Input "VolmSterkBase:",C
+Input "[KonsSterkBase:]",D
+Input "SyreKonstant:",K
+(10*A*B-11*D*C)/(11*D)->X
+Disp "KapasitetMol:"
+Disp (D*X)/(A+C)
+Disp "pH:"
+Disp -log(K)+log((C*D)/(A*B-C*D))
+0->A
+End
+0->A
+End
+"Titrering"
+If A=3
+Then
+Input "VolmBrkt:",V
+Input "Konsentrasjon:",C
+Input "VolmBeholder:",W
+Input "MolForhold:",R
+Disp "Konsentrasjon:"
+Disp (V*C/W)*R
+0->A
+End
+"Entalpi"
+If A=4
+Then
+"Bindinger brtt"
+Disp "Bindingerbrtt:"
+Input "AntallC-C",A
+Input "AntallC-H",B
+Input "AntallC-O",C
+Input "AntallC=O(CO2)",E
+Input "AntallC=O",D
+Input "AntallO-H(H2O)",F
+Input "AntallO-H",G
+Input "AntallO=O",H
+Input "AntallC-N",I
+"Bindinger dannet"
+Disp "Bindingerdannet:"
+Input "AntallC-C",J
+Input "AntallC-H",K
+Input "AntallC-O",L
+Input "AntallC=O(CO2)",N
+Input "AntallC=O",M
+Input "AntallO-H(H2O)",O
+Input "AntallO-H",P
+Input "AntallO=O",Q
+Input "AntallC-N",R
+Disp "kJ/mol:"
+(348A+412B+360C+743D+805E+463F+431G+496H+305I)-(348J+412K+360L+743M+805N+463O+431P+496Q+305R)->A
+Disp A
+Input "Molarmasse:",M
+If M>0
+Then
+Disp "kJ/G:"
+Disp -A/M
+End
+0->A
+End
+"Elektrokjemi"
+If A=5
+Then
+Disp "Finn:"
+Disp "1-Masse"
+Disp "2-ColombAmpere"
+Input "Alternati",A
+ClrHome
+
+"Finn Masse"
+If A=1
+Then
+3600->A
+Input "Colomb:",C
+Input "Molforhold:",R
+Input "MolarMasse:",M
+Disp "Masse:"
+Disp C*R*M/96490
+0->A
+End
+"Finn ColombAmpere"
+If A=2
+Then
+Disp "Vetdmol?"
+Disp "1-Ja"
+Disp "2-Nei"
+Input "Alternati",A
+ClrHome
+
+If A=1
+Then
+Input "Mol:",M
+Input "Molforhold:",R
+Disp "Colomb:"
+Disp 96490M/R
+Disp "Amperetimer:"
+Disp 96490M/(R*3600)
+0->A
+End
+If A=2
+Then
+Input "Masse:",M
+Input "MolarMasse:",W
+Input "Molforhold:",R
+Disp "Colomb:"
+Disp 96490M/(R*W)
+Disp "Amperetimer:"
+Disp 96490M/(R*W*3600)
+0->A
+End
+0->A
+End
+0->A
+End
+Pause "Fortsett.."

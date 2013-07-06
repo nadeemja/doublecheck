@@ -1,0 +1,3 @@
+Disp "Laget av"
+Disp "Nadeem Qureshi"
+Pause "nadeem.no"

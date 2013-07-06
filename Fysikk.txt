@@ -1,0 +1,1296 @@
+"SlurvFriFysikk"
+Disp "1-Mekanikk"
+Disp "2-Elektrisitet"
+Disp "3-Relativitet"
+Disp "4-ElektrskFelt"
+Disp "5-Magnetisme"
+Input "Alternativ",A
+ClrHome
+
+"Mekanikk"
+If A=1
+Then
+Disp "Tema"
+Disp "1-Bevegelse"
+Disp "2-Newton"
+Input "Alternativ",A
+ClrHome
+
+"Bevegelse"
+If A=1
+Then
+Disp "Velg:"
+Disp "1-KonstantFart"
+Disp "2-KonstAkslrsjon"
+Input "Alternativ",A
+ClrHome
+
+"KonstantFart"
+If A=1
+Then
+Disp "Finn"
+Disp "1-Strekning"
+Disp "2-Fart"
+Disp "3-Tid"
+Input "Alternativ",A
+ClrHome
+
+"Strekning"
+If A=1
+Then
+Input "Fart:",V
+Input "Tid:",T
+Disp "Strekning:"
+Disp V*T
+0->A
+End
+"Fart"
+If A=2
+Then
+Input "Strekning",S
+Input "Tid",T
+Disp "Fart:"
+Disp S/T
+0->A
+End
+"Tid"
+If A=3
+Then
+Input "Fart:",V
+Input "Strekning:",S
+Disp "Tid:"
+Disp S/V
+0->A
+End
+0->A
+End
+"KonstAkslrsjon"
+If A=2
+Then
+Disp "Finn:"
+Disp "1-Strekning"
+Disp "2-SluttFartV"
+Disp "3-StartFartVnull"
+Disp "4-Tid"
+Disp "5-Akselerasjon"
+Input "Alternativ",A
+ClrHome
+
+"Strekning"
+If A=1
+Then
+Disp "DuVetAllerede:"
+Disp "1-Aksl+SluttFart"
+Disp "2-Akslrsjon+Tid"
+Disp "3-VetIkAkslrsjon"
+Input "Alternativ",A
+ClrHome
+
+"Aksl+SluttFart"
+If A=1
+Then
+Input "SluttFart:",V
+Input "StartFart:",W
+Input "Akselerasjon:",A
+Disp "Strekning:"
+Disp (V^2-W^2)/(2*A)
+0->A
+End
+"Akslrsjon+Tid"
+If A=2
+Then
+Input "StartFart:",V
+Input "Tid:",T
+Input "Akselerasjon:",A
+Disp "Strekning:"
+Disp VT+(1/2)*A*T^2
+0->A
+End
+"VetIkAkslrsjon"
+If A=3
+Then
+Input "SluttFart:",V
+Input "StartFart:",W
+Input "Tid:",T
+Disp "Strekning:"
+Disp T*(W+V)/2
+0->A
+End
+0->A
+End
+"SluttFartV"
+If A=2
+Then
+Disp "DuVetAllerede:"
+Disp "1-Akslrsjon+Tid"
+Disp "2-Tid+Strekning"
+Disp "3-Strek+Akslrsjn"
+Input "Alternativ",A
+ClrHome
+
+"Akslrsjon+Tid"
+If A=1
+Then
+Input "StartFart:",V
+Input "Akselerasjon:",A
+Input "Tid:",T
+Disp "SluttFart:"
+Disp V+AT
+0->A
+End
+"Tid+Strekning"
+If A=2
+Then
+Input "StartFart:",V
+Input "Tid:",T
+Input "Strekning:",S
+Disp "SluttFart:"
+Disp 2S/T-V
+0->A
+End
+"Strek+Akslrsjn"
+If A=3
+Then
+Input "StartFart:",V
+Input "Strekning:",S
+Input "Akselerasjon:",A
+Disp "Sluttfart:"
+Disp (2*A*S+V^2)^(1/2)
+0->A
+End
+0->A
+End
+"StartFartVnull"
+If A=3
+Then
+Disp "DuVetAllerede:"
+Disp "1-Akslrsjon+Fart"
+Disp "2-Fart+Strekning"
+Disp "3-Strek+Akslrsjn"
+Disp "4-VetIkkeTiden"
+Input "Alternativ",A
+ClrHome
+
+"Akslrsjon+Fart"
+If A=1
+Then
+Input "Fart:",V
+Input "Akselerasjon:",A
+Input "Tid:",T
+Disp "StartFart:"
+Disp V-AT
+0->A
+End
+"Fart+Strekning"
+If A=2
+Then
+Input "Fart:",V
+Input "Strekning:",S
+Input "Tid:",T
+Disp "StartFart:"
+Disp 2*S/T-V
+0->A
+End
+"Strek+Akslrsjn"
+If A=3
+Then
+Input "Strekning:",S
+Input "Akselerasjon:",A
+Input "Tid:",T
+Disp "StartFart:"
+Disp (S-0.5*A*T^2)/T
+0->A
+End
+"VetIkkeTiden"
+If A=4
+Then
+Input "Fart:",V
+Input "Akselerasjon:",A
+Input "Strekning:",S
+Disp "StartFart:"
+Disp (V^2-2*A*S)^(1/2)
+0->A
+End
+0->A
+End
+"Tid"
+If A=4
+Then
+Disp "DuVetAllerede:"
+Disp "1-Fart+Akslrsjon"
+Disp "2-Fart+Strekning"
+Disp "3-Strek+Akslr"
+Input "Alternativ",A
+ClrHome
+
+"Fart+Akslrsjon"
+If A=1
+Then
+Input "StartFart:",W
+Input "SluttFart:",V
+Input "Akselerasjon:",A
+Disp "Tid:"
+Disp (V-W)/A
+0->A
+End
+"Fart+Strekning"
+If A=2
+Then
+Input "StarFart:",W
+Input "SluttFart:",V
+Input "Strekning:",S
+Disp "Tid:"
+Disp 2*S/(W+V)
+0->A
+End
+"Strek+Akslr"
+If A=3
+Then
+Input "StartFart:",V
+Input "Strekning:",S
+Input "Akselerasjon:",A
+Disp "MuligeTider:"
+Disp (-V+(V^2+2*A*S)^(1/2))/A
+Disp (-V-(V^2+2*A*S)^(1/2))/A
+0->A
+End
+0->A
+End
+"Akselerasjon"
+If A=5
+Then
+Disp "DuVetAllerede:"
+Disp "1-SluttFart+Tid"
+Disp "2-Tid+Strekning"
+Disp "3-Strek+SluttFrt"
+Input "Alternativ",A
+ClrHome
+
+"Fart+Tid"
+If A=1
+Then
+Input "StartFart:",W
+Input "SluttFart:",V
+Input "Tid:",T
+Disp "Akselerasjon:"
+Disp (V-W)/T
+0->A
+End
+"Tid+Strek"
+If A=2
+Then
+Input "StartFart:",V
+Input "Strekning:",S
+Input "Tid:",T
+Disp "Akselerasjon:"
+Disp 2*(S-V)/T^2
+0->A
+End
+"Strek+Fart"
+If A=3
+Then
+Input "StartFart:",W
+Input "SluttFart:",V
+Input "Strekning:",S
+Disp "Akselerasjon:"
+Disp (V^2-W^2)/(2*S)
+0->A
+End
+0->A
+End
+0->A
+End
+0->A
+End
+"Newton"
+If A=2
+Then
+Disp "Velg:"
+Disp "1-F=MA"
+Disp "2-GravitasjonLov"
+Disp "3-GraviPotnEnrgi"
+Disp "4-GravFeltStyrke"
+Disp "5-GlideFriksjon"
+Input "Alternativ",A
+ClrHome
+
+"F=MA"
+If A=1
+Then
+Disp "Finn:"
+Disp "1-Kraften"
+Disp "2-Masse"
+Disp "3-Akselerasjon"
+Input "Alternativ",A
+ClrHome
+
+"Kraften"
+If A=1
+Then
+Input "Masse:",M
+Input "Akselerasjon:",A
+Disp "F="
+Disp M*A
+0->A
+End
+"Masse"
+If A=2
+Then
+Input "Kraften:",F
+Input "Akselerasjon:",A
+Disp "Masse="
+Disp F/A
+0->A
+End
+"Akselerasjon"
+If A=3
+Then
+Input "Kraften:",F
+Input "Masse:",M
+Disp "Akselerasjon="
+Disp F/M
+0->A
+End
+0->A
+End
+"GravitasjonLov"
+If A=2
+Then
+6.67*10^(-11->Y
+Disp "Finn:"
+Disp "1-Kraften"
+Disp "2-Avstand"
+Disp "3-Massen"
+Input "Alternativ",A
+ClrHome
+
+"Kraften"
+If A=1
+Then
+Input "Masse1:",M
+Input "Masse2:",W
+Input "Avstand:",R
+Disp "Kraften:"
+Disp Y*M*W/R^2
+0->A
+End
+"Avstand"
+If A=2
+Then
+Input "Masse1:",M
+Input "Masse2:",W
+Input "Kraften:",F
+Disp "Avstand:"
+Disp (Y*M*W/F)^(1/2)
+0->A
+End
+"Massen"
+If A=3
+Then
+Input "Masse1:",M
+Input "Kraften:",F
+Input "Avstand:",R
+Disp "Masse2:"
+Disp F*R^2/(Y*M)
+0->A
+End
+0->A
+End
+"GraviPotnEnrgi"
+If A=3
+Then
+6.67*10^(-11->Y
+Disp "Finn:"
+Disp "1-PotEnergi"
+Disp "2-Avstand"
+Disp "3-Massen"
+Input "Alternativ",A
+ClrHome
+
+"PotEnergi"
+If A=1
+Then
+Input "Masse1:",M
+Input "Masse2:",W
+Input "Avstand:",R
+Disp "PotEnergi:"
+Disp -Y*M*W/R
+0->A
+End
+"Avstand"
+If A=2
+Then
+Input "Masse1:",M
+Input "Masse2:",W
+Input "PotEnergi:",P
+Disp "Avstand:"
+Disp (-Y*M*W/P)
+0->A
+End
+"Massen"
+If A=3
+Then
+Input "Masse1:",M
+Input "PotEnergi:",P
+Input "Avstand:",R
+Disp "Masse2:"
+Disp P*R/(-Y*M)
+0->A
+End
+0->A
+End
+"GravFeltStyrke"
+If A=4
+Then
+Disp "Finn:"
+Disp "1-FeltStyrke"
+Disp "2-TyngdeKraft"
+Disp "3-Masse"
+Input "Alternativ:",A
+ClrHome
+
+"FeltStyrke"
+If A=1
+Then
+Input "TyngdeKraft:",F
+Input "Masse:",M
+Disp "FeltStyrke:"
+Disp F/M
+0->A
+End
+"TyngdeKraft"
+If A=2
+Then
+Input "FeltStyrke:",F
+Input "Masse:",M
+Disp "TyngdeKraft:"
+Disp F*M
+0->A
+End
+"Masse"
+If A=3
+Then
+Input "TyngdeKraft:",F
+Input "FeltStyrke:",S
+Disp "Masse:"
+Disp F/S
+0->A
+End
+0->A
+End
+"GlideFriksjon"
+If A=5
+Then
+Disp "Finn:"
+Disp "1-GlideFriksjn"
+Disp "2-NormalKraft"
+Disp "3-Konstanten"
+Input "Alternativ:",A
+ClrHome
+
+"GlideFriksjn"
+If A=1
+Then
+Input "NormalKraft:",N
+Input "Konstanten:",K
+Disp "GlideFriksjn:"
+Disp N*K
+0->A
+End
+"NormalKraft"
+If A=2
+Then
+Input "GlideFriksjn:",R
+Input "Konstanten:",K
+Disp "NormalKraft:"
+Disp R/K
+0->A
+End
+"Konstanten"
+If A=3
+Then
+Input "NormalKraft:",N
+Input "GlideFriksjn:",R
+Disp "Konstanten:"
+Disp R/N
+0->A
+End
+0->A
+End
+0->A
+End
+0->A
+End
+"Elektrisitet"
+If A=2
+Then
+Disp "1-Strom"
+Disp "2-Spenning"
+Disp "3-Arbeid"
+Disp "4-Tid"
+Disp "5-Resistans"
+Input "6-Ladning",A
+ClrHome
+
+"Strom"
+If A=1
+Then
+Disp "1-Ladning+Tid"
+Disp "2-Effkt+Spenning"
+Disp "3-Spning+Rstans"
+Disp "4-Arbd+Tid+Spenn"
+Disp "5-E+Resistnser"
+Input "6-Efkt+Rsistns",A
+ClrHome
+
+"Ladning+Tid"
+If A=1
+Then
+Input "Ladning:",Q
+Input "Tid:",T
+Disp "Strom:"
+Disp Q/T
+0->A
+End
+"Effkt+Spenning"
+If A=2
+Then
+Input "Effekt:",P
+Input "Spenning:",U
+Disp "Strom:"
+Disp P/U
+0->A
+End
+"Spning+Rstans"
+If A=3
+Then
+Input "Spenning:",U
+Input "Resistans:",R
+Disp "Strom:"
+Disp U/R
+0->A
+End
+"Arbd+Tid+Spenn"
+If A=4
+Then
+Input "Arbeid:",W
+Input "Tid:",T
+Input "Spenning:",U
+Disp "Strom:"
+Disp W/(T*U)
+0->A
+End
+"E+Resistnser"
+If A=5
+Then
+Input "E:",E
+Input "YtreRsistans",Y
+Input "IndrRsistans:",I
+Disp "Strom:"
+Disp E/(Y+I)
+0->A
+End
+"Effkt+Resistns"
+If A=6
+Then
+Input "Resistans:",R
+Input "Effekt:",P
+Disp "Strom:"
+Disp (P/R)^(1/2)
+0->A
+End
+0->A
+End
+"Spenning"
+If A=2
+Then
+Disp "1-Arb+Tid+Strom"
+Disp "2-Arbd+Ldning"
+Disp "3-Effkt+Strm"
+Disp "4-Rstans+Strm"
+Disp "5-FltStrk+Avst"
+Input "6-Effkt+Rstans",A
+ClrHome
+
+"Arb+Tid+Strom"
+If A=1
+Then
+Input "Arbeid:",W
+Input "Tid:",T
+Input "Strom:",I
+Disp "Spenning:"
+Disp W/(T*I)
+0->A
+End
+"Arbd+Ldning"
+If A=2
+Then
+Input "Arbeid:",W
+Input "Ladning:",Q
+Disp "Spenning:"
+Disp W/Q
+0->A
+End
+"Effkt+Strm"
+If A=3
+Then
+Input "Effekt:",P
+Input "Strom:",I
+Disp "Spenning:"
+Disp P/I
+0->A
+End
+"Rstans+Strm"
+If A=4
+Then
+Input "Resistans",R
+Input "Strom:",I
+Disp "Spenning:"
+Disp R*I
+0->A
+End
+"FltStrk+Avst"
+If A=5
+Then
+Input "FeltStyrke:",E
+Input "Avstand:",D
+Disp "Spenning:"
+Disp E*D
+0->A
+End
+"Effkt+Rstans"
+If A=6
+Then
+Input "Effekt:",P
+Input "Resistans",R
+Disp "Spenning:"
+Disp (P*R)^(1/2)
+0->A
+End
+0->A
+End
+"Arbeid"
+If A=3
+Then
+Disp "DuVet:"
+Disp "1-Spnn+Strm+Td"
+Disp "2-Ldning+Spenn"
+Input "Alternativ",A
+ClrHome
+
+"Spnn+Strm+Td"
+If A=1
+Then
+Input "Spenning:",U
+Input "Strom:",I
+Input "Tid:",T
+Disp "Arbeid:"
+Disp U*I*T
+0->A
+End
+"Ldning+Spenn"
+If A=2
+Then
+Input "Ladning:",Q
+Input "Spenning:",U
+Disp "Arbeid:"
+Disp Q*U
+0->A
+End
+0->A
+End
+"Tid"
+If A=4
+Then
+Disp "DuVet:"
+Disp "1-Ladning+Strm"
+Disp "2-Arb+Spn+Strm"
+Input "Alternativ",A
+ClrHome
+
+"Ladning+Strm"
+If A=1
+Then
+Input "Ladning:",Q
+Input "Strom:",I
+Disp "Tid:"
+Disp Q/I
+0->A
+End
+"Arb+Spn+Strm"
+If A=2
+Then
+Input "Arbeid:",W
+Input "Spenning:",U
+Input "Strom:",I
+Disp "Tid:"
+Disp W/(U*I)
+0->A
+End
+0->A
+End
+"Resistans"
+If A=5
+Then
+Disp "Finn:"
+Disp "1-Resistans"
+Disp "2-RstansSerie"
+Disp "3-RstansPrlell"
+Input "Alternativ",A
+ClrHome
+
+"Resistans"
+If A=1
+Then
+Input "Spenning:",U
+Input "Strom:",I
+Disp "Resistans:"
+Disp U*I
+0->A
+End
+"RstansSerie"
+If A=2
+Then
+1->T
+0->S
+While T>0
+Disp "Slutt:0"
+Input "Resistans:",R
+If R!=0
+Then
+R+S->S
+Else
+0->T
+Disp "SumRstans:"
+Disp S
+End
+End
+0->A
+End
+"RstansParall"
+If A=3
+Then
+1->T
+0->S
+Disp "Slutt:0"
+While T>0
+Input "Resistans:",R
+If R!=0
+Then
+1/R+S->S
+Else
+0->T
+If S!=0
+Then
+Disp "TotRstans:"
+Disp S^(-1)
+End
+End
+End
+0->A
+End
+0->A
+End
+"Ladning"
+If A=6
+Then
+Disp "1-Tid+Strom"
+Disp "2-Arb+Spenn"
+Disp "3-Kraft+Avst"
+Disp "4-PotEnrgColmb"
+Disp "5-PotEnrgHomog"
+Input "6-Krft+FltStrk",A
+ClrHome
+
+"Tid+Strom"
+If A=1
+Then
+Input "Tid:",T
+Input "Strom:",I
+Disp "Ladning:"
+Disp T*I
+0->A
+End
+"Arb+Spenn"
+If A=2
+Then
+Input "Arbeid:",W
+Input "Spenning:",U
+Disp "Ladning:"
+Disp W/U
+0->A
+End
+"Kraft+Avst"
+If A=3
+Then
+Input "Kraft:",F
+Input "Avstand:",R
+Input "Ladning1:",Q
+8.99*10^(9->K
+Disp "Ladning2:"
+Disp (F*R^2)/(Q*K)
+0->A
+End
+"PotEnrgColmb"
+If A=4
+Then
+Input "PotEnergi:",P
+Input "Avstand:",R
+Input "Ladning1:",Q
+8.99*10^(9->K
+Disp "Ladning2:"
+Disp (P*R)/(Q*K)
+0->A
+End
+"PotEnrgHomog"
+If A=5
+Then
+Input "PotEnergi:",P
+Input "FeltStyrke:",E
+Input "Avstand:",S
+Disp "Ladning:"
+Disp P/(E*S)
+0->A
+End
+"Krft+FltStrk"
+If A=6
+Then
+Input "Kraft:",F
+Input "FeltStyrke:",E
+Disp "Ladning:"
+Disp F/E
+0->A
+End
+0->A
+End
+0->A
+End
+"Relativitet"
+If A=3
+Then
+Disp "Tema:"
+Disp "1-BevegelseMengd"
+Disp "2-TidHvileTid"
+Disp "3-HvileEnergi"
+Disp "4-TotalEnergi"
+Disp "5-KinetiskEnergi"
+Input "Alternativ",A
+ClrHome
+
+"BevegelseMengd"
+If A=1
+Then
+Disp "Finn"
+Disp "1-P(Mengde)"
+Disp "2-M(Masse)"
+Disp "3-V(Fart)"
+Input "Alternativ",A
+ClrHome
+
+"P(Mengde)"
+If A=1
+Then
+300000000->C
+Input "Masse:",M
+Input "Fart:",V
+Disp "P:"
+Disp M*V/(1-(V/300000000)^2)^(1/2)
+0->A
+End
+"M(Masse)"
+If A=2
+Then
+300000000->C
+Input "P:",P
+Input "Fart:",V
+Disp "M:"
+Disp (1-(V/300000000)^2)^(1/2)*P/V
+0->A
+End
+"V(Fart)"
+If A=3
+Then
+Input "P:",P
+Input "Masse:",M
+Disp "Fart:"
+Disp ((P*300000000)^2/((M*300000000)^2+P^2))^(1/2)
+0->A
+End
+0->A
+End
+"TidHvileTid"
+If A=2
+Then
+Disp "Finn:"
+Disp "1-RelativTid"
+Disp "2-EgenTid"
+Disp "3-Fart"
+Input "Alternativ",A
+ClrHome
+
+"RelativTid"
+If A=1
+Then
+300000000->C
+Input "EgenTid:",T
+Input "Fart:",V
+Disp "RelativTid:"
+Disp T/(1-(V/300000000)^2)^(1/2)
+0->A
+End
+"EgenTid"
+If A=2
+Then
+300000000->C
+Input "RelativTid:",T
+Input "Fart:",V
+Disp "EgenTid:"
+Disp T*(1-(V/300000000)^2)^(1/2)
+0->A
+End
+"Fart"
+If A=3
+Then
+Input "RelativTid:",T
+Input "EgenTid:",S
+Disp "Fart:"
+Disp (300000000/T)*(T^2-S^2)^(1/2)
+0->A
+End
+0->A
+End
+"HvileEnergi"
+If A=3
+Then
+Disp "Finn:"
+Disp "1-HvileEnergi"
+Disp "2-Masse"
+Input "Alternativ",A
+ClrHome
+
+"HvileEnergi"
+If A=1
+Then
+300000000->C
+Input "Masse:",M
+Disp "HvileEnergi:"
+Disp M*C^2
+0->A
+End
+"Masse"
+If A=2
+Then
+300000000->C
+Input "HvileEnergi:",E
+Disp "Masse:"
+Disp E/C^2
+0->A
+End
+0->A
+End
+"TotalEnergi"
+If A=4
+Then
+Disp "Finn"
+Disp "1-Energi"
+Disp "2-Masse"
+Disp "3-Fart"
+Input "Alternativ",A
+ClrHome
+
+"Energi"
+If A=1
+Then
+300000000->C
+Input "Masse:",M
+Input "Fart:",V
+Disp "TotalEnergi:"
+Disp M*300000000^2/(1-(V/300000000)^2)^(1/2)
+0->A
+End
+"Masse"
+If A=2
+Then
+300000000->C
+Input "Energi:",E
+Input "Fart:",V
+Disp "Masse:"
+Disp (E/300000000^2)*(1-(V/300000000)^2)^(1/2)
+0->A
+End
+"Fart"
+If A=3
+Then
+Input "Energi:",E
+Input "Masse:",M
+Disp "Fart:"
+Disp (((E*300000000)^2-(M*300000000^3)^2)/(E^2))^2
+0->A
+End
+0->A
+End
+"KinetiskEnergi"
+If A=5
+Then
+Disp "Finn"
+Disp "1-KinetiskEnergi"
+Disp "2-Fart"
+Disp "3-Masse"
+Input "Alternativ",A
+ClrHome
+
+"KinetiskEnergi"
+If A=1
+Then
+300000000->C
+Input "Masse:",M
+Input "Fart:",V
+Disp "KinetiskEnergi:"
+Disp M*C^2/(1-(V/C)^2)^(1/2)-M*C^2
+0->A
+End
+"Fart"
+If A=2
+Then
+300000000->C
+Input "Masse:",M
+Input "KinetiskEnergi:",E
+Disp "Fart:"
+Disp C*(1-(M*C^2/(E+M*C^2))^2)^(1/2)
+0->A
+End
+"Masse"
+If A=3
+Then
+300000000->C
+Input "KinetiskEnergi:",E
+Input "Fart:",V
+Disp "Masse:"
+Disp E/C^2*(1-(V/C)^2)^(1/2)/(1-(1-(V/C)^2)^(1/2))
+0->A
+End
+0->A
+End
+0->A
+End
+"ElektrskeFelt"
+If A=4
+Then
+Disp "ElektrskFelt"
+Disp "1-PotEnrgColmb"
+Disp "2-HomogFeltStrk"
+Disp "3-Felstyrke"
+Disp "4-PotEnrgHomog"
+Input "Alternativ",A
+ClrHome
+
+"PotEnrgColmb"
+If A=1
+Then
+Input "Ladning1:",Q
+Input "Ladning2:",E
+Input "Avstand:",R
+8.99*10^(9->K
+Disp "PotEnergi:"
+Disp K*Q*E/R
+0->A
+End
+"HomogFeltStrk"
+If A=2
+Then
+Input "Spenning:",U
+Input "Avstand:",D
+Disp "HomogFeltstyrke:"
+Disp U/D
+0->A
+End
+"Felstyrke"
+If A=3
+Then
+Input "Kraft:",F
+Input "Ladning:",Q
+Disp "Feltstyrke:"
+Disp F/Q
+0->A
+End
+"PotEnrgHomog"
+If A=4
+Then
+Input "Ladning:",Q
+Input "FeltStyrke:",E
+Input "Avstand:",S
+Disp "PotEnrgHomogFlt:"
+Disp Q*E*S
+0->A
+End
+0->A
+End
+"Magnetisme"
+If A=5
+Then
+Disp "1-Kraft"
+Disp "2-Strom"
+Disp "3-B"
+Disp "4-Lengde"
+Disp "5-Fart"
+Input "6-Ladning",A
+ClrHome
+
+"Kraft"
+If A=1
+Then
+Disp "Finn:"
+Disp "1-KraftLeder"
+Disp "2-KraftPartikl"
+Input "Alternativ",A
+ClrHome
+
+"KraftLeder"
+If A=1
+Then
+Input "Strom:",I
+Input "Lengde:",L
+Input "MagnetiskFelt:",B
+Disp "Kraft:"
+Disp I*L*B
+0->A
+End
+"KraftPartikl"
+If A=2
+Then
+Input "Ladning:",Q
+Input "Fart:",V
+Input "MagnetiskFelt:",B
+Disp "Kraft:"
+Disp Q*V*B
+0->A
+End
+0->A
+End
+"Strom"
+If A=2
+Then
+Input "Kraft:",F
+Input "Lengde:",L
+Input "MagnetiskFelt:",B
+Disp "Strom:"
+Disp F/(L*B)
+0->A
+End
+"B"
+If A=3
+Then
+Disp "DuVetAllerede:"
+Disp "1-Strom"
+Disp "2-Ladning"
+Disp "3-IndusertE"
+Input "Alternativ",A
+ClrHome
+
+"Strom"
+If A=1
+Then
+Input "Kraft:",F
+Input "Strom:",I
+Input "Lengde:",L
+Disp "B:"
+Disp F/(I*L)
+0->A
+End
+"Ladning"
+If A=2
+Then
+Input "Kraft:",F
+Input "Ladning:",Q
+Input "Fart:",V
+Disp "B:"
+Disp F/(Q*V)
+0->A
+End
+"IndusertE"
+If A=3
+Then
+Input "IndusertE:",E
+Input "Lengde:",L
+Input "Fart:",V
+Disp "B:"
+Disp E/(L*V)
+0->A
+End
+0->A
+End
+"Lengde"
+If A=4
+Then
+Disp "Bruk:"
+Disp "1-IndsE+Fart"
+Disp "2-Kraft+Strom"
+Input "Alternativ",A
+ClrHome
+
+"IndsE+Fart"
+If A=1
+Then
+Input "IndusertE:",E
+Input "Fart:",V
+Input "MagnetiskFelt:",B
+Disp "Lengde:"
+Disp E/(V*B)
+0->A
+End
+"Kraft+Strom"
+If A=2
+Then
+Input "Kraft:",F
+Input "MagnetiskFelt:",B
+Input "Strom:",I
+Disp "Lengde:"
+Disp F/(B*I)
+0->A
+End
+0->A
+End
+"Fart"
+If A=5
+Then
+Disp "Bruk:"
+Disp "1-Kraft+Ldning"
+Disp "2-IndE+Lengd"
+Input "Alternativ",A
+ClrHome
+
+"Kraft+Ldning"
+If A=1
+Then
+Input "Kraft:",F
+Input "MagnetiskFelt:",B
+Input "Ladning:",Q
+Disp "Fart:"
+Disp F/(B*Q)
+0->A
+End
+"IndE+Lengd"
+If A=2
+Then
+Input "IndusertE:",E
+Input "MagnetiskFelt:",B
+Input "Lengde:",L
+Disp "Fart:"
+Disp E/(B*L)
+0->A
+End
+0->A
+End
+"Ladning"
+If A=6
+Then
+Input "Kraft:",F
+Input "MagnetiskFelt:",B
+Input "Fart:",V
+Disp "Ladning:"
+Disp F/(B*V)
+0->A
+End
+0->A
+End
+Pause "Fortsett..."

@@ -1,0 +1,1240 @@
+"SlurvFriMatte"
+ClrHome
+Disp "1-Vekst+Log"
+Disp "2-ABC-Formel"
+Disp "3-Trigonometri"
+Disp "4-Sannsynlighet"
+Disp "5-Vektorer"
+Input "6-Rekker",A
+ClrHome
+
+
+"Vekst+Log"
+If A=1
+Then
+Disp "Velg:"
+Disp "1-ProsentVekst"
+Disp "2-GjnSnttVekst"
+Disp "3-LogstskVekst"
+Input "Alternativ:",A
+ClrHome
+
+
+"ProsentVekst"
+If A=1
+Then
+Disp "Finn:"
+Disp "1-SluttKapital"
+Disp "2-StartKapital"
+Disp "3-Prosent"
+Disp "4-Nperioder"
+Input "Alternativ:",A
+ClrHome
+
+
+"SluttKapital"
+If A=1
+Then
+Input "StartKapital:",K
+Input "Prosent:",P
+Input "Perioder:",N
+Disp "SluttKapital:"
+Disp K*(1+P/100)^N
+0->A
+End
+"StartKapital"
+If A=2
+Then
+Input "SluttKapital:",K
+Input "Prosent:",P
+Input "Perioder:",N
+Disp "StartKapital:"
+Disp K/(1+P/100)^N
+0->A
+End
+"Prosent"
+If A=3
+Then
+Input "SluttKapital:",K
+Input "StartKapital:",S
+Input "Perioder:",N
+Disp "Prosent:"
+Disp 100*(K/S)^(1/N)-100
+0->A
+End
+"N-perioder"
+If A=4
+Then
+Input "SluttKapital:",K
+Input "StartKapital:",S
+Input "Prosent:",P
+Disp "Perioder:"
+Disp log(K/S)/log(1+P/100)
+0->A
+End
+0->A
+End
+"GjnSnttVekst"
+If A=2
+Then
+Input "X1:",X
+Input "Y1:",Y
+Input "X2:",Z
+Input "Y2:",V
+Disp "GjnSnttVekst:"
+Disp (V-Y)/(Z-X)
+0->A
+End
+"LogstskVekst"
+If A=3
+Then
+Disp "NB!"
+Disp "Det Er"
+Disp "Formelen"
+Disp "I Formelheftet"
+Disp "Side 42"
+Pause "Som Brukes!"
+ClrHome
+Disp "1-VekstenY"
+Disp "2-KonstantenK"
+Disp "3-KonstantenC"
+Disp "4-FinnXVerdien"
+Input "Alternativ:",A
+ClrHome
+
+
+"VekstenY"
+If A=1
+Then
+Input "BareEvnenB:",B
+Input "KonstantenK:",K
+Input "X:",X
+Input "KonstantenC:",C
+Disp "VekstenY:"
+Disp B/(1+e^(-K*B*X)/C)
+0->A
+End
+"KonstantenK"
+If A=2
+Then
+Input "KonstantenC:",C
+Input "BareEvnenB:",B
+Input "VekstenY:",Y
+Input "X:",X
+"X=0"
+If X=0
+Then
+Disp "K Kan Ikke"
+Disp "Regnes Ut"
+Disp "For X=0"
+Pause "NulliNevner"
+Else
+Disp "KonstantenK:"
+Disp -ln(C(B-Y)/Y)/(X*B)
+End
+0->A
+End
+"KonstantenC"
+If A=3
+Then
+Input "VekstenY:",Y
+Input "KonstantenK:",K
+Input "BareEvnenB:",B
+Input "X:",X
+Disp "KonstantenC"
+Disp Y*e^(-K*B*X)/(B-Y)
+0->A
+End
+"FinnXVerdien"
+If A=4
+Then
+Input "KonstantenC:",C
+Input "BareEvnenB:",B
+Input "VekstenY:",Y
+Input "KonstantenK:",K
+"K=0"
+If X=0
+Then
+Disp "X kan ikke"
+Disp "regnes ut"
+Disp "For K=0"
+Pause "NulliNevner"
+Else
+Disp "X-Verdien:"
+Disp -ln(C(B-Y)/Y)/(K*B)
+End
+0->A
+End
+0->A
+End
+0->A
+End
+"Algebra"
+If A=2
+Then
+Lbl 1
+Input "A:",A
+Input "B:",B
+Input "C:",C
+B^2-4*A*C->D
+"IngenLosning"
+If D<0
+Then
+Disp "Ingen Losning"
+Disp "Rot Blir Minus"
+Pause "Sjekk Tallene"
+Goto 1
+End
+"En losning"
+If D=0
+Then
+Disp "Enlosning:"
+Disp "X:"
+Disp -B/(2*A)
+End
+"ToLosninger"
+If D>0
+Then
+Disp "ToLosninger:"
+Disp "X1:"
+Disp (-B+(D)^(1/2))/(2*A)
+Disp "X2:"
+Disp (-B-(D)^(1/2))/(2*A)
+End
+0->A
+End
+"Trigonometri"
+If A=3
+Then
+Disp "1-Pytagoras"
+Disp "2-CosSetning"
+Disp "3-SinSetning"
+Disp "4-ArealSetning"
+Disp "5-GradOgRadian"
+Input "6-GrunnLigningr",A
+ClrHome
+
+
+"Pytagoras"
+If A=1
+Then
+Disp "Finn:"
+Disp "1-Hypotenus"
+Disp "2-Katet"
+Input "Alternativ:",A
+ClrHome
+
+
+"Hypotenus"
+If A=1
+Then
+Input "Katet-A",A
+Input "Katet-B",B
+Disp "Hypotenus:"
+Disp (A^2+B^2)^(1/2)
+0->A
+End
+"Katet"
+If A=2
+Then
+Input "Katet-A",A
+Input "Hypotenus",H
+Disp "KatetB:"
+Disp (H^2-A^2)^(1/2)
+0->A
+End
+0->A
+End
+"CosSetning"
+If A=2
+Then
+Disp "Finn:"
+Disp "1-Siden-A"
+Disp "2-Side-B-eller-C"
+Disp "3-FinnVinkel"
+Input "Alternativ:",A
+ClrHome
+
+
+"Siden-A"
+If A=1
+Then
+Input "Side-B:",B
+Input "Side-C:",C
+Input "Vinkel-A:",V
+If sin(180)<0
+Then
+V*pi/180->V
+End
+Disp "Side-A:"
+Disp (B^2+C^2-2*B*C*cos(V))^(1/2)
+0->A
+End
+"Side-B-eller-C"
+If A=2
+Then
+Input "Side-A:",A
+Input "Side-B",B
+Input "Vinkel-A:",V
+If sin(180)<0
+Then
+V*pi/180->V
+End
+Disp "Side-C:"
+Disp (A^2-B^2+(B*cos(V))^2)^(1/2)+B*cos(V)
+0->A
+End
+"FinnVinkel"
+If A=3
+Then
+Input "Side-A:",A
+Input "Side-B:",B
+Input "Side-C:",C
+Disp "Vinkel-A:"
+"CheckMode"
+If sin(180)<0
+Then
+Disp cos-1((B^2+C^2-A^2)/(2*B*C))*180/pi
+Else
+Disp cos-1((B^2+C^2-A^2)/(2*B*C))
+End
+0->A
+End
+0->A
+End
+"SinSetning"
+If A=3
+Then
+Disp "Finn:"
+Disp "1-Vinkel-A"
+Disp "2-Side-A"
+Input "Alternativ:",A
+ClrHome
+
+
+"Vinkel"
+If A=1
+Then
+Input "Side-A:",A
+Input "Side-B:",B
+Input "Vinkel-B:",V
+Disp "Vinkel-A:"
+"CheckMode"
+If sin(180)=0
+Then
+Disp sin-1(A*sin(V)/B)
+Else
+Disp sin-1(A*sin(V*pi/180)/B)*180/pi
+End
+0->A
+End
+"Side-A"
+If A=2
+Then
+Input "Side-B:",B
+Input "Vinkel-B:",V
+Input "Vinkel-A:",W
+Disp "Side-A:"
+If sin(180)=0
+Then
+Disp B*sin(W)/sin(V)
+Else
+Disp B*sin(W*pi/180)/sin(V*pi/180)
+End
+0->A
+End
+0->A
+End
+"ArealSetning"
+If A=4
+Then
+Disp "Finn:"
+Disp "1-Areal"
+Disp "2-Side"
+Disp "3-Vinkel"
+Input "Alternativ:",A
+ClrHome
+
+
+"Areal"
+If A=1
+Then
+Input "Side-B:",B
+Input "Side-C:",C
+Input "Vinkel-A:",A
+If sin(180)<0
+Then
+A*pi/180->A
+End
+Disp "Areal:"
+Disp 0.5*B*C*sin(A)
+0->A
+End
+"Side"
+If A=2
+Then
+Input "Areal:",A
+Input "Side-B:",B
+Input "Vinkel-A:",V
+If sin(180)<0
+Then
+V*pi/180->V
+End
+Disp "Side-C:"
+Disp (2*A)/(B*sin(V))
+0->A
+End
+"Vinkel"
+If A=3
+Then
+Input "Areal:",A
+Input "Side-B:",B
+Input "Side-C:",C
+Disp "Vinkel-A:"
+If sin(180)=0
+Then
+Disp sin-1((2*A)/(B*C))
+Else
+Disp sin-1((2*A)/(B*C))*180/pi
+End
+0->A
+End
+0->A
+End
+"RadianGrad"
+If A=5
+Then
+Disp "Velg:"
+Disp "1-Grad2Rad"
+Disp "2-Rad2Grad"
+Input "Alternativ:",A
+ClrHome
+
+
+"Grad2Rad"
+If A=1
+Then
+Input "Grader:",N
+Disp "Radianer:"
+Disp N*2*pi/360
+0->A
+End
+"Rad2Grad"
+If A=2
+Then
+Input "Radianer:",R
+Disp "Grader:"
+Disp 360*R/(2*pi)
+0->A
+End
+0->A
+End
+"TrigLigningr"
+If A=6
+Then
+Disp "HuskRiktig"
+Disp "modus!"
+Disp "Radianeller"
+Pause "Grader"
+ClrHome
+Disp "Velg:"
+Disp "1-SinusLigning"
+Disp "2-CosinusLigning"
+Disp "3-TangensLigning"
+Input "Alternativ:",A
+ClrHome
+
+
+"SinusLigning"
+If A=1
+Then
+Input "X-Min:",F
+Input "X-Max:",T
+Input "sin(X)=B,B:",Y
+Disp "Du-Skrev-Inn:"
+Disp "1-Grader"
+Disp "2-Radianer"
+Input "Velg:",M
+"Modus"
+If sin(180)=0
+Then
+sin-1(Y)*pi/180->Y
+Else
+sin-1(Y)->Y
+End
+-5->N
+F->X
+While X<=T
+Y+N*2*pi->X
+If M=1
+Then
+X*180/pi->X
+End
+If X>=F and X<=T
+Then
+Pause X
+End
+pi-Y+N*2*pi->X
+If M=1
+Then
+X*180/pi->X
+End
+If X>=F and X<=T
+Then
+Pause X
+End
+N+1->N
+End
+0->A
+End
+"CosinusLigning"
+If A=2
+Then
+Input "X-Min:",F
+Input "X-Max:",T
+Input "cos(X)=A,A:",Y
+Disp "Du-Skrev-Inn:"
+Disp "1-Grader"
+Disp "2-Radianer"
+Input "Velg:",M
+"Modus"
+If sin(180)=0
+Then
+cos-1(Y)*pi/180->Y
+Else
+cos-1(Y)->Y
+End
+-5->N
+F->X
+While X<=T
+Y+N*2*pi->X
+If M=1
+Then
+X*180/pi->X
+End
+If X>=F and X<=T
+Then
+Pause X
+End
+-Y+N*2*pi->X
+If M=1
+Then
+X*180/pi->X
+End
+If X>=F and X<=T
+Then
+Pause X
+End
+N+1->N
+End
+0->A
+End
+"TangensLigning"
+If A=3
+Then
+Input "X-Min:",F
+Input "X-Max:",T
+Input "tan(X)=C,C:",Y
+Disp "Du-Skrev-Inn:"
+Disp "1-Grader"
+Disp "2-Radianer"
+Input "Velg:",M
+"Modus"
+If sin(180)=0
+Then
+tan-1(Y)*pi/180->Y
+Else
+tan-1(Y)->Y
+End
+-5->N
+F->X
+While X<=T
+Y+N*pi->X
+If M=1
+Then
+X*180/pi->X
+End
+If X>=F and X<=T
+Then
+Pause X
+End
+N+1->N
+End
+0->A
+End
+0->A
+End
+0->A
+End
+"Sannsynlighet"
+If A=4
+Then
+Disp "1-OrdntUtvlgNPR"
+Disp "2-UordntUtvlgNCR"
+Disp "3-BayesSetning"
+Disp "4-HyprGeomtrsk"
+Disp "5-BinomiskSann"
+Input "Alternativ:",A
+ClrHome
+
+
+"OrdUtvlgNPR"
+If A=1
+Then
+Input "N:",N
+Input "R:",R
+Disp N nPr R
+0->A
+End
+"UordUtvlgNCR"
+If A=2
+Then
+Input "N:",N
+Input "R:",R
+Disp N nCr R
+0->A
+End
+"BayesSetning"
+If A=3
+Then
+Disp "Finn:"
+Disp "1-P(A/B)"
+Disp "2-P(A)"
+Disp "3-P(B)"
+Disp "4-P(B/A)"
+Input "Alternativ:",A
+ClrHome
+
+
+"P(AB)"
+If A=1
+Then
+Input "P(A):",A
+Input "P(B):",B
+Input "P(B/A):",C
+Disp "P(A/B):"
+Disp A*C/B
+0->A
+End
+"P(A)"
+If A=2
+Then
+Input "P(A/B):",A
+Input "P(B):",B
+Input "P(B/A):",C
+Disp "P(A):"
+Disp B*A/C
+0->A
+End
+"P(B)"
+If A=3
+Then
+Input "P(A):",A
+Input "P(A/B):",B
+Input "P(B/A):",C
+Disp "P(B):"
+Disp A*C/B
+0->A
+End
+"P(BA)"
+If A=4
+Then
+Input "P(A):",A
+Input "P(A/B):",C
+Input "P(B):",B
+Disp "P(B/A):"
+Disp B*C/A
+0->A
+End
+0->A
+End
+"HyprGeomtrsk"
+If A=4
+Then
+Input "A:",A
+Input "X:",X
+Input "B:",B
+Input "R:",R
+A+B->N
+Disp "HyperGeometrisk:"
+Disp (A nCr X)*(B nCr (R-X))/(N nCr R)
+0->A
+End
+"BinomiskSann"
+If A=5
+Then
+Input "X:",X
+Input "N:",N
+Input "P:",P
+Disp "BinomiskP:"
+Disp (N nCr X)*P^X*(1-P)^(N-X)
+0->A
+End
+0->A
+End
+"Vektorer"
+If A=5
+Then
+Disp "NB:BrukZ=0"
+Disp "Hvis Vektor Er"
+Pause "2-Dimensjonal"
+ClrHome
+Disp "1-Avstander"
+Disp "2-SkalarProd"
+Disp "3-FinnVinkel"
+Disp "4-VektorProd"
+Disp "5-Areal"
+Input "6-Volum",A
+ClrHome
+
+
+"Avstander"
+If A=1
+Then
+Disp "Avstander:"
+Disp "1-PunktOgPunkt"
+Disp "2-PunktOgPlan"
+Disp "3-PunktOgLinje"
+Input "Alternativ:",A
+ClrHome
+
+
+"PunktOgPunkt"
+If A=1
+Then
+Input "X-1:",A
+Input "Y-1:",B
+Input "Z-1:",C
+Input "X-2:",D
+Input "Y-2:",E
+Input "Z-2:",F
+Disp "Avstand:"
+Disp ((D-A)^2+(E-B)^2+(F-C)^2)^(1/2)
+0->A
+End
+"PunktOgPlan"
+If A=2
+Then
+Input "A:",A
+Input "B:",B
+Input "C:",C
+Input "D:",D
+Input "X:",X
+Input "Y:",Y
+Input "Z:",Z
+Disp "Avstand:"
+(A*X+B*Y+C*Z+D)/((A^2+B^2+C^2)^(1/2))->Q
+If Q>0
+Then
+Disp Q
+Else
+Disp -1*Q
+End
+0->A
+End
+"PunktOgLinje"
+If A=3
+Then
+Disp "QP-Kordinater:"
+Input "X1:",X
+Input "Y1:",Y
+Input "Z1:",Z
+Disp "RetningsVektor:"
+Input "X2:",A
+Input "Y2:",B
+Input "Z2:",C
+"Produkt"
+Y*C-Z*B->D
+Z*A-X*C->E
+X*B-Y*A->F
+Disp "Avstand:"
+Disp (D^2+E^2+F^2)^(1/2)/(A^2+B^2+C^2)^(1/2)
+0->A
+End
+0->A
+End
+"SkalarProd"
+If A=2
+Then
+Disp "Vektor1:"
+Input "X-1:",A
+Input "Y-1:",B
+Input "Z-1:",C
+Disp "Vektor2:"
+Input "X-2:",D
+Input "Y-2:",E
+Input "Z-2:",F
+Input "Vinkel",V
+"SeModus"
+If sin(180)<0
+Then
+V*pi/180->V
+End
+Disp (A^2+B^2+C^2)^(1/2)*(D^2+E^2+F^2)^(1/2)*cos(V)
+0->A
+End
+"FinnVinkel"
+If A=3
+Then
+Disp "Vektor1:"
+Input "X-1:",A
+Input "Y-1:",B
+Input "Z-1:",C
+Disp "Vektor2:"
+Input "X-2:",D
+Input "Y-2:",E
+Input "Z-2:",F
+Disp "Vinkel:"
+(A*D+B*E+C*F)/((A^2+B^2+C^2)^(1/2)*(D^2+E^2+F^2)^(1/2))->V
+If sin(180)=0
+Then
+Disp cos-1(V)
+Else
+Disp cos-1(V)*180/pi
+End
+0->A
+End
+"VektorProd"
+If A=4
+Then
+Disp "VektroProd:"
+Disp "1-FinnLengde"
+Disp "2-Koordinater"
+Input "Alternativ:",A
+ClrHome
+
+
+"FinnLengde"
+If A=1
+Then
+Input "VektorLengde1:",V
+Input "VektorLengde2:",W
+Input "Vinkel:",G
+Disp "Lengde:"
+If sin(180)=0
+Then
+Disp V*W*sin(G)
+Else
+Disp V*W*sin(G*pi/180)
+End
+0->A
+End
+"Koordinater"
+If A=2
+Then
+Disp "A-Kordinater:"
+Input "X1:",X
+Input "Y1:",Y
+Input "Z1:",Z
+Disp "B-Kordinater:"
+Input "X2:",A
+Input "Y2:",B
+Input "Z2:",C
+"Produkt"
+Y*C-Z*B->D
+Z*A-X*C->E
+X*B-Y*A->F
+"Output"
+
+ClrHome
+
+Output(1,1,"AXB=")
+Output(2,1,"[")
+Output(2,2,D)
+Output(2,6,",")
+Output(2,7,E)
+Output(2,11,",")
+Output(2,12,F)
+Output(2,16,"]")
+Pause 
+0->A
+End
+0->A
+End
+"Areal"
+If A=5
+Then
+Disp "Velg:"
+Disp "1-Trekant"
+Disp "2-Paralelogram"
+Input "Alternativ:",A
+ClrHome
+
+
+"Trekant"
+If A=1
+Then
+Disp "Vektor-A:"
+Input "X1:",X
+Input "Y1:",Y
+Input "Z1:",Z
+Disp "Vektor-B:"
+Input "X2:",A
+Input "Y2:",B
+Input "Z2:",C
+"Produkt"
+Y*C-Z*B->D
+Z*A-X*C->E
+X*B-Y*A->F
+Disp "Areal:"
+Disp (D^2+E^2+F^2)^(1/2)/2
+0->A
+End
+"Paralelogram"
+If A=2
+Then
+Disp "Vektor-A:"
+Input "X1:",X
+Input "Y1:",Y
+Input "Z1:",Z
+Disp "Vektor-B:"
+Input "X2:",A
+Input "Y2:",B
+Input "Z2:",C
+"Produkt"
+Y*C-Z*B->D
+Z*A-X*C->E
+X*B-Y*A->F
+Disp "Areal:"
+Disp (D^2+E^2+F^2)^(1/2)
+0->A
+End
+0->A
+End
+"Volum"
+If A=6
+Then
+Disp "Velg:"
+Disp "1-ParalelPiped"
+Disp "2-Pyramid3Kant"
+Disp "3-Pyramid4Kant"
+Input "Alternativ:",A
+ClrHome
+
+
+"ParalelPiped"
+If A=1
+Then
+Disp "Vektor-A:"
+Input "X1:",X
+Input "Y1:",Y
+Input "Z1:",Z
+Disp "Vektor-B:"
+Input "X2:",A
+Input "Y2:",B
+Input "Z2:",C
+Disp "Vektor-C:"
+Input "X3:",G
+Input "Y3:",H
+Input "Z3:",I
+"Produkt"
+Y*C-Z*B->D
+Z*A-X*C->E
+X*B-Y*A->F
+Disp "Volum:"
+D*G+E*H+F*I->A
+"AbsoluttVerdi"
+If A<0
+Then
+Disp -A
+Else
+Disp A
+End
+0->A
+End
+"Pyramid3Kant"
+If A=2
+Then
+Disp "Vektor-A:"
+Input "X1:",X
+Input "Y1:",Y
+Input "Z1:",Z
+Disp "Vektor-B:"
+Input "X2:",A
+Input "Y2:",B
+Input "Z2:",C
+Disp "Vektor-C:"
+Input "X3:",G
+Input "Y3:",H
+Input "Z3:",I
+"Produkt"
+Y*C-Z*B->D
+Z*A-X*C->E
+X*B-Y*A->F
+Disp "Volum:"
+(D*G+E*H+F*I)/6->A
+"AbsoluttVerdi"
+If A<0
+Then
+Disp -A
+Else
+Disp A
+End
+0->A
+End
+"Pyramid4Kant"
+If A=3
+Then
+Disp "Vektor-A:"
+Input "X1:",X
+Input "Y1:",Y
+Input "Z1:",Z
+Disp "Vektor-B:"
+Input "X2:",A
+Input "Y2:",B
+Input "Z2:",C
+Disp "Vektor-C:"
+Input "X3:",G
+Input "Y3:",H
+Input "Z3:",I
+"Produkt"
+Y*C-Z*B->D
+Z*A-X*C->E
+X*B-Y*A->F
+Disp "Volum:"
+(D*G+E*H+F*I)/3->A
+"AbsoluttVerdi"
+If A<0
+Then
+Disp -A
+Else
+Disp A
+End
+0->A
+End
+0->A
+End
+0->A
+End
+"Rekker"
+If A=6
+Then
+Disp "RekkeType:"
+Disp "1-Aritmetisk"
+Disp "2-Geometrisk"
+Disp "3-Konvergent"
+Input "Alternativ:",A
+ClrHome
+
+
+"Aritmetisk"
+If A=1
+Then
+Disp "Finn:"
+Disp "1-Sum"
+Disp "2-AntallLedd"
+Disp "3-Differansen"
+Disp "4-NteLedd"
+Input "Alternativ:",A
+ClrHome
+
+
+"Sum"
+If A=1
+Then
+Input "ForsteLedd:",A
+Input "SisteLedd:",B
+Input "AntallLedd:",N
+Disp "Sum:"
+Disp (A+B)*N/2
+0->A
+End
+"AntallLeddN"
+If A=2
+Then
+Disp "JegVet:"
+Disp "1-Sum"
+Disp "2-Differanse"
+Input "Alternativ:",A
+ClrHome
+
+
+"Sum"
+If A=1
+Then
+Input "ForsteLedd:",A
+Input "SisteLedd:",B
+Input "Sum:",S
+Disp "AntallLedd:"
+Disp 2*S/(A+B)
+0->A
+End
+"Differanse"
+If A=2
+Then
+Input "ForsteLedd:",A
+Input "SisteLedd:",B
+Input "Differanse:",D
+Disp "AntallLedd:"
+Disp (B-A+D)/D)
+0->A
+End
+0->A
+End
+"Differansen"
+If A=3
+Then
+Input "ForsteLedd:",A
+Input "SisteLedd:",B
+Input "AntallLedd:",N
+Disp "Differanse:"
+Disp (B-A)/(N-1)
+0->A
+End
+"NteLeddAn"
+If A=4
+Then
+Disp "JegVet:"
+Disp "1-Sum"
+Disp "2-Differanse"
+Input "Alternativ:",A
+ClrHome
+
+
+"Sum"
+If A=1
+Then
+Input "ForsteLedd:",A
+Input "Sum:",S
+Input "AntallLedd:",N
+Disp "NteLedd:"
+Disp (2*S/N)-A
+0->A
+End
+"Differanse"
+If A=2
+Then
+Input "ForsteLedd:",A
+Input "AntallLedd:",N
+Input "Differanse:",D
+Disp "NteLedd:"
+Disp A+(N-1)*D
+0->A
+End
+0->A
+End
+0->A
+End
+"Geometrisk"
+If A=2
+Then
+Disp "Finn:"
+Disp "1-NteLedd"
+Disp "2-KvotientenK"
+Disp "3-AntallLedd"
+Disp "4-Sum"
+Input "Alternativ:",A
+ClrHome
+
+
+"NteLedd"
+If A=1
+Then
+Input "ForsteLedd:",A
+Input "KvotientenK:",K
+Input "AntallLedd:",N
+Disp "NteLedd"
+Disp A*K^(N-1)
+0->A
+End
+"KvotientenK"
+If A=2
+Then
+Input "SisteLedd:",Z
+Input "ForsteLedd:",A
+Input "AntallLedd:",N
+Disp (Z/A)^(1/(N-1))
+0->A
+End
+"AntallLedd"
+If A=3
+Then
+Disp "DuVet:"
+Disp "1-SisteLedd"
+Disp "2-VetSum"
+Input "Alternativ:",A
+ClrHome
+
+
+"SisteLedd"
+If A=1
+Then
+Input "SisteLedd:",Z
+Input "ForsteLedd:",A
+Input "KvotientenK:",K
+Disp "AntallLedd:"
+Disp log(Z/A)/log(K)+1
+0->A
+End
+"VetSum"
+If A=2
+Then
+Input "KvotientenK:",K
+Input "Sum:",S
+Input "ForsteLedd:",A
+Disp "AntallLedd:"
+Disp log(1+(K-1)*S/A)/log(K)
+0->A
+End
+0->A
+End
+"Sum"
+If A=4
+Then
+Input "ForsteLedd:",A
+Input "KvotientenK:",K
+Input "AntallLedd:",N
+Disp "Sum:"
+If K=0
+Then
+Disp N*A
+Else
+Disp A*(K^N-1)/(K-1)
+End
+0->A
+End
+0->A
+End
+"Konvergent"
+If A=3
+Then
+Disp "Finn:"
+Disp "1-Sum"
+Disp "2-ForsteLedd"
+Disp "3-KvotientenK"
+Input "Alternativ:",A
+ClrHome
+
+
+"Sum"
+If A=1
+Then
+Input "ForsteLedd:",A
+Input "KvotientenK:",K
+Disp "Sum:"
+Disp A/(1-K)
+0->A
+End
+"ForsteLedd"
+If A=2
+Then
+Input "Sum:",S
+Input "KvotientenK:",K
+Disp "ForsteLedd:"
+Disp S*(1-K)
+0->A
+End
+"KvotientenK"
+If A=3
+Then
+Input "Sum:",S
+Input "ForsteLedd:",A
+Disp "KvotientenK:"
+Disp (S-A)/S
+0->A
+End
+0->A
+End
+0->A
+End
+Pause "Fortsett.."
