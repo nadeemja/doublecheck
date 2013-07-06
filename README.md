@@ -1,6 +1,3 @@
-DoubleCheck
-===========
-
 # Hva er DoubleCheck?
 
 DoubleCheck er et program for Texas Instruments kalkulatorer som brukes på videregående nivå og opp.
